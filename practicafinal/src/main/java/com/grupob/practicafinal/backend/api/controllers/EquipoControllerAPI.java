@@ -15,7 +15,7 @@ import com.grupob.practicafinal.backend.repositories.EquipoRepository;
 
 @Controller
 @RequestMapping(value="grupob/api/")
-public class ControladorEquipo {
+public class EquipoControllerAPI {
 
 	@Autowired
 	EquipoRepository equipoRepository;
