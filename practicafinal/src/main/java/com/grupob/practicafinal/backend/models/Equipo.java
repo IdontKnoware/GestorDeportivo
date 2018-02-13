@@ -9,7 +9,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name="EQUIPOS")
 public class Equipo implements Serializable {
-	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -17,20 +16,15 @@ public class Equipo implements Serializable {
 	private String nombre;
 	private String escudo;
 	
+	public Equipo() {
+		
+	}
 	
-	// CONSTRUCTORES
-	
-	public Equipo() {}
-	public Equipo(Integer id, String nombre, String escudo) {
-		super();
+	public Equipo(Integer id, String nombre) {
 		this.id = id;
 		this.nombre = nombre;
-		this.escudo = escudo;
 	}
 
-	
-	// GETTERS/SETTERS + METODOS
-	
 	public Integer getId() {
 		return id;
 	}
@@ -56,11 +50,6 @@ public class Equipo implements Serializable {
 	}
 
 	@Override
-	public String toString() {
-		return "Equipo [id=" + id + ", nombre=" + nombre + ", escudo=" + escudo + "]";
-	}
-	
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -83,9 +72,9 @@ public class Equipo implements Serializable {
 			return false;
 		return true;
 	}
-
-
 	
-	
-
+	@Override
+	public String toString() {
+		return "Equipo [id=" + id + ", nombre=" + nombre + ", escudo=" + escudo + "]";
+	}
 }

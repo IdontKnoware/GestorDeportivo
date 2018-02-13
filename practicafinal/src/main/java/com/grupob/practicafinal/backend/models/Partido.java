@@ -3,50 +3,58 @@ package com.grupob.practicafinal.backend.models;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PARTIDOS")
+@Table(name="PARTIDOS")
 public class Partido implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private Integer id;
+	
 	private String jornada;
-	private Integer idEquipoVisitante;
-	private Integer idEquipoLocal;
+	
+	@ManyToOne
+	@JoinColumn(name="ID_EQUIPO_VISITANTE")
+	private Equipo visitante;
+	
+	@ManyToOne
+	@JoinColumn(name="ID_EQUIPO_LOCAL")
+	private Equipo local;
+	
 	private int golesLocal;
 	private int golesVisitante;
-	private Estado idEstado;
-
-	// CONSTRUCTORES
-
+	
+	@Enumerated(EnumType.STRING)
+	private Estado estado;
+	
 	public Partido() {
+	
 	}
 
-	public Partido(Integer id, String jornada, Integer idEquipoVisitante, Integer idEquipoLocal, int golesLocal,
-			int golesVisitante, Estado idEstado) {
-		super();
+	public Partido(Integer id, String jornada, Equipo visitante, Equipo local, int golesLocal,
+			int golesVisitante, Estado estado) {
 		this.id = id;
 		this.jornada = jornada;
-		this.idEquipoVisitante = idEquipoVisitante;
-		this.idEquipoLocal = idEquipoLocal;
+		this.visitante = visitante;
+		this.local = local;
 		this.golesLocal = golesLocal;
 		this.golesVisitante = golesVisitante;
-		this.idEstado = idEstado;
+		this.estado = estado;
 	}
 
 	// GETTERS/SETTERS + METODOS
-
+	
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getJornada() {
 		return jornada;
@@ -56,20 +64,20 @@ public class Partido implements Serializable {
 		this.jornada = jornada;
 	}
 
-	public Integer getIdEquipoVisitante() {
-		return idEquipoVisitante;
+	public Equipo getVisitante() {
+		return visitante;
 	}
 
-	public void setIdEquipoVisitante(Integer idEquipoVisitante) {
-		this.idEquipoVisitante = idEquipoVisitante;
+	public void setVisitante(Equipo visitante) {
+		this.visitante = visitante;
 	}
 
-	public Integer getIdEquipoLocal() {
-		return idEquipoLocal;
+	public Equipo getLocal() {
+		return local;
 	}
 
-	public void setIdEquipoLocal(Integer idEquipoLocal) {
-		this.idEquipoLocal = idEquipoLocal;
+	public void setLocal(Equipo local) {
+		this.local = local;
 	}
 
 	public int getGolesLocal() {
@@ -88,12 +96,12 @@ public class Partido implements Serializable {
 		this.golesVisitante = golesVisitante;
 	}
 
-	public Estado getIdEstado() {
-		return idEstado;
+	public Estado getEstado() {
+		return estado;
 	}
 
-	public void setIdEstado(Estado idEstado) {
-		this.idEstado = idEstado;
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
 
 	@Override
@@ -123,9 +131,8 @@ public class Partido implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Partido [id=" + id + ", jornada=" + jornada + ", idEquipoVisitante=" + idEquipoVisitante
-				+ ", idEquipoLocal=" + idEquipoLocal + ", golesLocal=" + golesLocal + ", golesVisitante="
-				+ golesVisitante + ", idEstado=" + idEstado + "]\n";
+		return "Partido [id=" + id + ", jornada=" + jornada + ", visitante=" + visitante + ", local=" + local
+				+ ", golesLocal=" + golesLocal + ", golesVisitante=" + golesVisitante + ", Estado=" + estado + "]";
 	}
 
 }
