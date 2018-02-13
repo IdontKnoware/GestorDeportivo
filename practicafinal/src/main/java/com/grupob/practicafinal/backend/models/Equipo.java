@@ -21,11 +21,9 @@ public class Equipo implements Serializable {
 	// CONSTRUCTORES
 	
 	public Equipo() {}
-	public Equipo(Integer id, String nombre, String escudo) {
-		super();
+	public Equipo(Integer id, String nombre) {
 		this.id = id;
 		this.nombre = nombre;
-		this.escudo = escudo;
 	}
 
 	
