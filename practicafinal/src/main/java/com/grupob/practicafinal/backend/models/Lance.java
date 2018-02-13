@@ -7,7 +7,6 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -23,8 +22,8 @@ public class Lance implements Serializable {
 	@JoinColumn(name="ID_PARTIDO")
 	private Partido partido;
 	
-	@ManyToMany
-	@JoinColumn(name="ID_PARTIDO")
+	@ManyToOne
+	@JoinColumn(name="ID_EQUIPO")
 	private Equipo equipo;
 	
 	private int minuto;
