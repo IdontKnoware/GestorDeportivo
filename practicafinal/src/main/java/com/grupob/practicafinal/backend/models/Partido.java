@@ -2,6 +2,7 @@ package com.grupob.practicafinal.backend.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -32,6 +33,7 @@ public class Partido implements Serializable {
 	private int golesVisitante;
 	
 	@Enumerated(EnumType.STRING)
+	@Column ( name = "id_estado")
 	private Estado estado;
 	
 	public Partido() {

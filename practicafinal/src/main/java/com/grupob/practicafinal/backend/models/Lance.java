@@ -2,6 +2,7 @@ package com.grupob.practicafinal.backend.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -29,6 +30,7 @@ public class Lance implements Serializable {
 	private int minuto;
 	
 	@Enumerated(EnumType.STRING)
+	@Column ( name = "id_tipo")
 	private TipoLance tipos;
 	
 	private String comentario;
