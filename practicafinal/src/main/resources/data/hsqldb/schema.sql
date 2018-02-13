@@ -1,3 +1,4 @@
+
 DROP TABLE IF EXISTS lances;
 DROP TABLE IF EXISTS tipos_lance;
 DROP TABLE IF EXISTS partidos;

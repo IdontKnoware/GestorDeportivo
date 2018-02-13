@@ -3,74 +3,98 @@ package com.grupob.practicafinal.backend.models;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="LANCES")
 public class Lance implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private Integer id;
-	private int idPartido;
-	private int idEquipo;
+	
+	@ManyToOne
+	@JoinColumn(name="ID_PARTIDO")
+	private Partido partido;
+	
+	@ManyToMany
+	@JoinColumn(name="ID_PARTIDO")
+	private Equipo equipo;
+	
 	private int minuto;
-	private TiposLance tipos;
+	
+	@Enumerated(EnumType.STRING)
+	private TipoLance tipos;
+	
 	private String comentario;
 	
-	// CONSTRUCTORES
+	public Lance() {
+		
+	}
 	
-	public Lance() {}
-	public Lance(Integer id, int idPartido, int idEquipo, int minuto, TiposLance tipos, String comentario) {
-		super();
+	public Lance(Integer id, Partido partido, Equipo equipo, int minuto, TipoLance tipos, String comentario) {
 		this.id = id;
-		this.idPartido = idPartido;
-		this.idEquipo = idEquipo;
+		this.partido = partido;
+		this.equipo = equipo;
 		this.minuto = minuto;
 		this.tipos = tipos;
 		this.comentario = comentario;
 	}
 	
-	// GETTERS/SETTERS + METODOS
-	
+
 	public Integer getId() {
 		return id;
 	}
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getIdPartido() {
-		return idPartido;
+	
+	public Partido getPartido() {
+		return partido;
 	}
-	public void setIdPartido(int idPartido) {
-		this.idPartido = idPartido;
+	
+	public void setPartido(Partido partido) {
+		this.partido = partido;
 	}
-	public int getIdEquipo() {
-		return idEquipo;
+	
+	public Equipo getEquipo() {
+		return equipo;
 	}
-	public void setIdEquipo(int idEquipo) {
-		this.idEquipo = idEquipo;
+	
+	public void setEquipo(Equipo equipo) {
+		this.equipo = equipo;
 	}
+	
 	public int getMinuto() {
 		return minuto;
 	}
+	
 	public void setMinuto(int minuto) {
 		this.minuto = minuto;
 	}
-	public TiposLance getTipos() {
+	
+	public TipoLance getTipos() {
 		return tipos;
 	}
-	public void setTipos(TiposLance tipos) {
+	public void setTipos(TipoLance tipos) {
 		this.tipos = tipos;
 	}
+	
 	public String getComentario() {
 		return comentario;
 	}
+	
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -78,6 +102,7 @@ public class Lance implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -94,13 +119,10 @@ public class Lance implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 
+	@Override
+	public String toString() {
+		return "Lance [id=" + id + ", partido=" + partido + ", equipo=" + equipo + ", minuto=" + minuto + ", tipos="
+				+ tipos + ", comentario=" + comentario + "]";
+	}
 }

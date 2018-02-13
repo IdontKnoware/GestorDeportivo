@@ -1,4 +1,3 @@
-
 INSERT INTO equipos VALUES (1,'A','a.jpg'),
 						   (2,'B','b.jsp'),
 						   (3,'C','c.jsp'),
@@ -31,4 +30,5 @@ INSERT INTO tipos_lance VALUES ('AGRESIÓN'),
 							   ('PENALTY'),
 							   ('TARJETA ROJA'),
 							   ('TARJETA AMARILLA');
+
 
