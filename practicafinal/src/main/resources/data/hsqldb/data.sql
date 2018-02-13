@@ -17,7 +17,7 @@ INSERT INTO partidos VALUES (1,1,1,2,0,0,'PENDIENTE'),
 							(5,3,2,1,0,0,'PENDIENTE'),
 							(6,3,4,3,0,0,'PENDIENTE'),
 							(7,4,3,2,0,0,'PENDIENTE'),
-							(8,4,1,4,0,0,'PENDIENTE');
+							(8,4,1,4,0,0,'PENDIENTE'),
 							(9,5,3,1,0,0,'PENDIENTE'),
 							(10,5,4,2,0,0,'PENDIENTE'),
 							(11,6,1,3,0,0,'PENDIENTE'),

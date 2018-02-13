@@ -61,21 +61,42 @@ public class ControladorPartido {
 	
 	// ABRIR
 		@RequestMapping(value = "/abrirpartido/{id}",
-						method=RequestMethod.PUT,
-						produces=MediaType.APPLICATION_JSON_VALUE)
-		public Partido abrirPartido(@PathVariable("id") Integer id){	
+						method=RequestMethod.GET)
+//						produces=MediaType.APPLICATION_JSON_VALUE)
+//						consumes=MediaType.APPLICATION_JSON_VALUE)
+		public String abrirPartido(@PathVariable("id") Integer id){	
 
+			System.out.println("\n***********IN METHOD <abrirPartido>*****");
 			Partido partido = this.partidoRepository.findOne(id);
 			if (partido.getEstado().equals(Estado.PENDIENTE)) {
+				System.out.println("Este partido se puede abrir");
 				partido.setEstado(Estado.ABIERTO);
-				
+				partidoRepository.save(partido);
 			}else {
-				System.out.println("Partdo ya abierto/cerrado");
+				System.out.println("Partido ya abierto/cerrado");
 				return null; 
 			}
-			return partido;
+			return "abrirCerrarPartido";
 		}
 	
-	
+		// ABRIR
+		@RequestMapping(value = "/abrirpartido/{id}",
+						method=RequestMethod.GET)
+//						produces=MediaType.APPLICATION_JSON_VALUE)
+//						consumes=MediaType.APPLICATION_JSON_VALUE)
+		public String cerrarPartido(@PathVariable("id") Integer id){	
+
+			System.out.println("\n***********IN METHOD <abrirPartido>*****");
+			Partido partido = this.partidoRepository.findOne(id);
+			if (partido.getEstado().equals(Estado.PENDIENTE)) {
+				System.out.println("Este partido se puede abrir");
+				partido.setEstado(Estado.ABIERTO);
+				partidoRepository.save(partido);
+			}else {
+				System.out.println("Partido ya abierto/cerrado");
+				return null; 
+			}
+			return "abrirCerrarPartido";
+		}
 
 }
