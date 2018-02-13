@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.grupob.practicafinal.backend.models.Equipo;
 
-public interface EquipoRepository extends JpaRepository<Equipo, String>{
+public interface EquipoRepository extends JpaRepository<Equipo, Integer>{
 
 }
