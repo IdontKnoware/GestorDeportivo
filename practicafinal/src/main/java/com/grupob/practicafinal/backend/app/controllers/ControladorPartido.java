@@ -8,11 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.grupob.practicafinal.backend.models.Equipo;
 import com.grupob.practicafinal.backend.models.Estado;
+import com.grupob.practicafinal.backend.models.Lance;
 import com.grupob.practicafinal.backend.models.Partido;
+import com.grupob.practicafinal.backend.models.TipoLance;
 import com.grupob.practicafinal.backend.repositories.EquipoRepository;
 import com.grupob.practicafinal.backend.repositories.PartidoRepository;
 
@@ -60,43 +63,60 @@ public class ControladorPartido {
 	}
 	
 	// ABRIR
-		@RequestMapping(value = "/abrirpartido/{id}",
+		@RequestMapping(value = "/cambiarestado/{id}",
 						method=RequestMethod.GET)
 //						produces=MediaType.APPLICATION_JSON_VALUE)
 //						consumes=MediaType.APPLICATION_JSON_VALUE)
-		public String abrirPartido(@PathVariable("id") Integer id){	
+		public String cambiarEstado(@PathVariable("id") Integer id){	
 
-			System.out.println("\n***********IN METHOD <abrirPartido>*****");
+			System.out.println("\n***********IN METHOD <abrir o cerrar Partido>*****");
+			
 			Partido partido = this.partidoRepository.findOne(id);
+			
 			if (partido.getEstado().equals(Estado.PENDIENTE)) {
 				System.out.println("Este partido se puede abrir");
 				partido.setEstado(Estado.ABIERTO);
 				partidoRepository.save(partido);
+			}else if (partido.getEstado().equals(Estado.ABIERTO)) {
+				System.out.println("Este partido se puede abrir");
+				partido.setEstado(Estado.CERRADO);
+				partidoRepository.save(partido);
 			}else {
-				System.out.println("Partido ya abierto/cerrado");
-				return null; 
+				System.out.println("No puedo abrir o cerrar el partido. Probablemente ya esté cerrado, porqué sino hubiera entrado por otro de los if");
+				
+				throw new IllegalStateException();
 			}
 			return "abrirCerrarPartido";
+		}
+		
+		@RequestMapping(value = "/crearlance/",
+						method=RequestMethod.GET)
+		public String introducirLance(	@RequestParam("p1") int idPartido,
+										
+										@RequestParam("p2") int idEquipo,
+										@RequestParam("p3") int minuto,
+										/*@RequestParam("p4") TipoLance tipoLance,*/
+										@RequestParam("p5") String comentario) {
+			System.out.println("\n***********IN METHOD <añadir LANCE>*****");
+			
+			System.out.println("p1: " + idPartido);
+			System.out.println("p2: " + idEquipo);
+			System.out.println("p3: " + minuto);
+			//System.out.println("p4: " + tipoLance);
+			System.out.println("p5: " + comentario);
+			
+			/*Lance elLance = new Lance();
+			elLance.setId(lance.getId());
+			elLance.setPartido(lance.getPartido());
+			elLance.setEquipo(lance.getEquipo());
+			elLance.setMinuto(lance.getMinuto());
+			elLance.setTipos(lance.getTipos());
+			elLance.setComentario(lance.getComentario());*/
+			
+			//partidoRepository.introducirLance(lance);
+			
+			return null;
 		}
 	
-		// ABRIR
-		@RequestMapping(value = "/abrirpartido/{id}",
-						method=RequestMethod.GET)
-//						produces=MediaType.APPLICATION_JSON_VALUE)
-//						consumes=MediaType.APPLICATION_JSON_VALUE)
-		public String cerrarPartido(@PathVariable("id") Integer id){	
-
-			System.out.println("\n***********IN METHOD <abrirPartido>*****");
-			Partido partido = this.partidoRepository.findOne(id);
-			if (partido.getEstado().equals(Estado.PENDIENTE)) {
-				System.out.println("Este partido se puede abrir");
-				partido.setEstado(Estado.ABIERTO);
-				partidoRepository.save(partido);
-			}else {
-				System.out.println("Partido ya abierto/cerrado");
-				return null; 
-			}
-			return "abrirCerrarPartido";
-		}
 
 }
