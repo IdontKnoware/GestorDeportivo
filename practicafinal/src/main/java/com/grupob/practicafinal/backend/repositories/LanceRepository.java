@@ -7,11 +7,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.grupob.practicafinal.backend.models.Lance;
+import com.grupob.practicafinal.backend.models.Partido;
 
 @Repository
 public interface LanceRepository extends JpaRepository<Lance, Integer> {
 
-	@Query("select l from Lance l where l.partido = ?1")
-	public List<Lance> getLancesByPartido(Integer idPartido);
+	@Query("select l from Lance l where l.partido.id = ?1")
+	public List<Lance> getByPartido(Integer idPartido);
+	
+	public List<Lance> getByPartido(Partido partido);
 	
 }
