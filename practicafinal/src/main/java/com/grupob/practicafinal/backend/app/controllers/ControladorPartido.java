@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.grupob.practicafinal.backend.models.Equipo;
 import com.grupob.practicafinal.backend.models.Estado;
-import com.grupob.practicafinal.backend.models.Lance;
 import com.grupob.practicafinal.backend.models.Partido;
-import com.grupob.practicafinal.backend.models.TipoLance;
 import com.grupob.practicafinal.backend.repositories.EquipoRepository;
 import com.grupob.practicafinal.backend.repositories.PartidoRepository;
 

@@ -1,8 +1,6 @@
 package com.grupob.practicafinal.backend.api.controllers;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.grupob.practicafinal.backend.models.Equipo;
 import com.grupob.practicafinal.backend.models.Partido;
 import com.grupob.practicafinal.backend.repositories.EquipoRepository;
 import com.grupob.practicafinal.backend.repositories.PartidoRepository;
