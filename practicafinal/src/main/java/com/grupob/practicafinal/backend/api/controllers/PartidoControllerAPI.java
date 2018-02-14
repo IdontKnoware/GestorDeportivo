@@ -64,33 +64,5 @@ public class PartidoControllerAPI {
 	}
 
 	
-	//GetClasificacion
-	
-	List<Partido> partidos = partidoRepository.getByEstado("PENDIENTE");
-	
-	//SumaGolesvisitante
-	
-	private Map<Equipo,Integer> sumaGolesVisitante(List<Partido> partidos){
-		
-		List<Equipo> equipos = equipoRepository.findAll();
-		Map<Equipo,Integer> golesVisitantes = new HashMap<Equipo,Integer>();
-		Equipo equipovisitante;
-		
-				for (Equipo equipo : equipos) {
-					golesVisitantes.put(equipo, 0);
-				}
-				for (Partido partido : partidos) {
-					equipovisitante = partido.getVisitante();
-					
-					
-					golesVisitantes.put(equipovisitante,partido.getGolesVisitante());
-					
-				}
-		
-		return golesVisitantes;
-	}
-	
-	
-	
 	
 }
