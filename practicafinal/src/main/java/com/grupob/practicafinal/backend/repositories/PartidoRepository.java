@@ -2,13 +2,9 @@ package com.grupob.practicafinal.backend.repositories;
 
 import java.util.List;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.grupob.practicafinal.backend.models.Equipo;
@@ -34,5 +30,4 @@ public interface PartidoRepository extends JpaRepository<Partido, Integer> {
 	public List<Partido> getByEquipo(Equipo equipo);
 	
 	
-
 }
