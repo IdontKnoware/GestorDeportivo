@@ -89,6 +89,14 @@ public class ControladorPartido {
 			return "abrirCerrarPartido";
 		}
 		
+		
+		/*
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+		
 		@RequestMapping(value = "/crearlance/",
 						method=RequestMethod.GET)
 		public String introducirLance(	@RequestParam("p1") int idPartido,
@@ -97,6 +105,7 @@ public class ControladorPartido {
 										@RequestParam("p3") int minuto,
 										/*@RequestParam("p4") TipoLance tipoLance,*/
 										@RequestParam("p5") String comentario) {
+			
 			System.out.println("\n***********IN METHOD <añadir LANCE>*****");
 			
 			System.out.println("p1: " + idPartido);
