@@ -4,6 +4,7 @@ INSERT INTO equipos VALUES (1,'A','a.jpg'),
 						   (3,'C','c.jsp'),
 						   (4,'D','d.jsp');
 
+-- JORDI
 
 INSERT INTO estados VALUES ('ABIERTO'),
 						   ('CERRADO'),
