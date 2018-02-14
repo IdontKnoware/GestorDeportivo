@@ -49,17 +49,5 @@ public class PartidoControllerAPI {
 		List<Partido> partidos = partidoRepository.getByJornada(jornada);
 
 		return partidos;
-	}
-
-	// GetByEstado
-	@RequestMapping(value = "/partidos/estado/{estado}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<Partido> getPartidosByEstado(@PathVariable("estado") String estado) {
-
-		List<Partido> partidos = partidoRepository.getByEstado(estado);
-
-		return partidos;
-	}
-
-	
-	
+	}	
 }
