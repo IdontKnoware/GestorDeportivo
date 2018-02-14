@@ -32,7 +32,7 @@
 						<td>
 							<a href="./finalizar/${partido.getId()}">change</a>
 						</td>
-						<td><a href="./detalle/?id=${partido.getId()}">Ver</a></td>
+						<td><a href="./detalle/${partido.getId()}">Ver</a></td>
 					</tr>
 				</c:forEach>
 				
