@@ -3,9 +3,10 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>PRACTICA FINAL - FURGOL</title>
 	</head>
 	<body>
-		<h1>Futbol</h1>
+		<h1>MENÚ</h1>
+		<jsp:include page="cabecera.jsp"></jsp:include>
 	</body>
 </html>
