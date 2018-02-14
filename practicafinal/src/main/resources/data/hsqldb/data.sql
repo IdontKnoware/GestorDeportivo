@@ -1,27 +1,27 @@
 
-INSERT INTO equipos VALUES (1,'A','a.jpg'),
-						   (2,'B','b.jsp'),
-						   (3,'C','c.jsp'),
-						   (4,'D','d.jsp');
+INSERT INTO equipos VALUES (1,'F.C Barcelona','a.jpg'),
+						   (2,'R. Madrid C.F','b.jsp'),
+						   (3,'A.C Milan','c.jsp'),
+						   (4,'RCD Espanyol','d.jsp');
 
 
-INSERT INTO estados VALUES ('abierto'),
-						   ('cerrado'),
-					 	   ('pendiente');
+INSERT INTO estados VALUES ('ABIERTO'),
+						   ('CERRADO'),
+					 	   ('PENDIENTE');
 
 
-INSERT INTO partidos VALUES (1,1,1,2,0,0,'pendiente'),
-							(2,1,3,4,0,0,'pendiente'),
-							(3,2,2,3,0,0,'pendiente'),
-							(4,2,4,1,0,0,'pendiente'),
-							(5,3,2,1,0,0,'pendiente'),
-							(6,3,4,3,0,0,'pendiente'),
-							(7,4,3,2,0,0,'pendiente'),
-							(8,4,1,4,0,0,'pendiente'),
-							(9,5,3,1,0,0,'pendiente'),
-							(10,5,4,2,0,0,'pendiente'),
-							(11,6,1,3,0,0,'pendiente'),
-							(12,6,2,4,0,0,'pendiente');
+INSERT INTO partidos VALUES (1,1,1,2,0,0,'PENDIENTE'),
+							(2,1,3,4,0,0,'PENDIENTE'),
+							(3,2,2,3,0,0,'PENDIENTE'),
+							(4,2,4,1,0,0,'PENDIENTE'),
+							(5,3,2,1,0,0,'PENDIENTE'),
+							(6,3,4,3,0,0,'PENDIENTE'),
+							(7,4,3,2,0,0,'PENDIENTE'),
+							(8,4,1,4,0,0,'PENDIENTE'),
+							(9,5,3,1,0,0,'PENDIENTE'),
+							(10,5,4,2,0,0,'PENDIENTE'),
+							(11,6,1,3,0,0,'PENDIENTE'),
+							(12,6,2,4,0,0,'PENDIENTE');
 
 INSERT INTO tipos_lance VALUES ('AGRESIÓN'),
 							   ('CORNER'),
