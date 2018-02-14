@@ -54,11 +54,14 @@ public class PartidoServicesImpl implements PartidoServices {
 		Partido partido = partidoRepository.findOne(codigoPartido);
 		if (partido.getEstado().equals(Estado.PENDIENTE)) {
 			partido.setEstado(Estado.ABIERTO);
+			
 		}else if (partido.getEstado().equals(Estado.ABIERTO)) {
 			partido.setEstado(Estado.CERRADO);
+			
 		}else{
 			throw new IllegalStateException("No puedo cambiar estado del partido...WTF?!?!?!");
 		}
+		partidoRepository.save(partido);
 	}
 
 	@Override
