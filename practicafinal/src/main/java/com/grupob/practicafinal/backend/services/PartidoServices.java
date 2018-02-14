@@ -1,12 +1,16 @@
 package com.grupob.practicafinal.backend.services;
 
+import com.grupob.practicafinal.backend.models.TipoLance;
+
 public interface PartidoServices {
 
+	public void abrirPartido(int codigoPartido) throws Exception;
 	
-	// Aquí todos los métodos de nuestra lógica de negocio.
-	
-	// Ejemplo:
 	public void cerrarPartido(int codigoPartido) throws Exception;
 	
+	public void anadirLance(int codigoPartido, int codigoEquipo, 
+							 TipoLance tipoLance, int minuto, 
+							 String comentario) throws Exception;
+
 	
 }

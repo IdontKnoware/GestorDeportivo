@@ -37,61 +37,50 @@ public class Lance implements Serializable {
 	
 	public Lance() {
 		
-	}
+	}	
 	
-	public Lance(Integer id, Partido partido, Equipo equipo, int minuto, TipoLance tipos, String comentario) {
-		this.id = id;
+	public Lance(Partido partido, Equipo equipo, int minuto, TipoLance tipos, String comentario) {
+		super();
 		this.partido = partido;
 		this.equipo = equipo;
 		this.minuto = minuto;
 		this.tipos = tipos;
 		this.comentario = comentario;
 	}
-	
 
 	public Integer getId() {
 		return id;
 	}
-	
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
 	public Partido getPartido() {
 		return partido;
 	}
-	
 	public void setPartido(Partido partido) {
 		this.partido = partido;
 	}
-	
 	public Equipo getEquipo() {
 		return equipo;
 	}
-	
 	public void setEquipo(Equipo equipo) {
 		this.equipo = equipo;
 	}
-	
 	public int getMinuto() {
 		return minuto;
 	}
-	
 	public void setMinuto(int minuto) {
 		this.minuto = minuto;
 	}
-	
 	public TipoLance getTipos() {
 		return tipos;
 	}
 	public void setTipos(TipoLance tipos) {
 		this.tipos = tipos;
 	}
-	
 	public String getComentario() {
 		return comentario;
 	}
-	
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
