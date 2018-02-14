@@ -33,7 +33,7 @@ public class EquipoControllerAPI {
 	}
 	
 	//GetEquipo
-	@RequestMapping (value="/equipos/{id}",
+	@RequestMapping (value="/equipos/{ID}",
 					 method = RequestMethod.GET,
 					 produces = MediaType.APPLICATION_JSON_VALUE)
 	public  @ResponseBody Equipo getEquipo(@PathVariable ("ID") int ID) {
@@ -41,11 +41,5 @@ public class EquipoControllerAPI {
 		
 		return equipo;
 	}
-	
-	//Get
-	
-	
-	
-	
 	
 }
