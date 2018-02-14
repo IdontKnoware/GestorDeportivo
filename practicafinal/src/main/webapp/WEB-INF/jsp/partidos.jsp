@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:include page="/WEB-INF/jsp/formato.css"/>
 <!DOCTYPE>
 <html>
 	<head>
@@ -8,6 +9,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
+		<jsp:include page="cabecera.jsp"></jsp:include>
 		<h1>ABRIR / CERRAR PARTIDOS</h1>
 		
 		<form>
@@ -30,7 +32,7 @@
 						<td>${partido.getVisitante().nombre}</td>
 						<td>${partido.getEstado()}</td>
 						<td>
-							<a href="./finalizar/${partido.getId()}">change</a>
+							<a href="<c:url value='./${partido.getId()}'/>">change</a>
 						</td>
 						<td><a href="./detalle/${partido.getId()}">Ver</a></td>
 					</tr>

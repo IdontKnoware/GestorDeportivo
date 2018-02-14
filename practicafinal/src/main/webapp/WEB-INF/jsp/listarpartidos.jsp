@@ -9,6 +9,7 @@
 		<title>PARTIDOS DE LA JORNADA ${partido.jornada}</title>
 	</head>
 	<body>
+		<jsp:include page="cabecera.jsp"></jsp:include>
 		<h1>LISTAR PARTIDOS</h1>
 		Selecciona la jornada: 
 		<select>

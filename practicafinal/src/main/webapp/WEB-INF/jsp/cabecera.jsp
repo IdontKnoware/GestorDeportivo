@@ -1,12 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <nav>
+	<h4>Men√∫</h4>
 	<ul>
-		<li><a href="">Index</a></li>
+		<li><a href="index.jsp">Index</a></li>
 		<li><a href="./partidos">Listado de partidos</a></li>
-		<li><a href="">AÒadir un lance</a></li>
-		<li><a href="">ClasificaciÛn LIVE</a></li>
+		<li><a href="./nuevolance">A√±adir un lance</a></li>
+		<li><a href="./clasificacion">Clasificaci√≥n LIVE</a></li>
 	</ul>
+	<hr>
 </nav>
