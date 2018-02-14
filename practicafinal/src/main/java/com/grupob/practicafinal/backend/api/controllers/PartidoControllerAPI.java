@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.grupob.practicafinal.backend.models.Clasificado;
@@ -25,36 +26,23 @@ public class PartidoControllerAPI {
 
 	@Autowired
 	private ClasificacionServices clasificacionServices;
-	
-	
+
 	// GetClasificacionGlobal
-	@RequestMapping(value = "/clasificacion", 
-					method = RequestMethod.GET, 
-					produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<Clasificado> getClasificacion() {
-		
-		List<Clasificado> lista = this.clasificacionServices.getClasificacion();
-		
-		for(Clasificado clasificado: lista) {
-			System.out.println(clasificado);
+	@RequestMapping(value = "/clasificacion", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<?> getClasificacion(
+			@RequestParam(name = "condicion", required = false, defaultValue = "todos") String condicion) {
+
+		if (condicion == "todos") {
+			List<Clasificado> lista = this.clasificacionServices.getClasificacion();
+
+			return lista;
+		} else {
+			List<ClasificadoDTO> lista = this.clasificacionServices.getClasificacionEquipo(condicion);
+
+			return lista;
 		}
-		return lista;
 	}
-	
-	//GetClasificacionCondicionada
-	@RequestMapping(value = "/clasificacion/{condicion}", 
-			method = RequestMethod.GET, 
-			produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<ClasificadoDTO> getClasificacionEquipo(@PathVariable("condicion") String condicion){
-		
-		List<ClasificadoDTO> lista = this.clasificacionServices.getClasificacionEquipo(condicion);
-		
-		for (ClasificadoDTO clasificadoDTO : lista) {			
-			System.out.println(clasificadoDTO);
-		}
-		return lista;
-	}
-	
+
 	// GetAllPartidos
 	@RequestMapping(value = "/partidos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Partido> getAllEquipos() {
@@ -80,5 +68,5 @@ public class PartidoControllerAPI {
 		List<Partido> partidos = partidoRepository.getByJornada(jornada);
 
 		return partidos;
-	}	
+	}
 }
