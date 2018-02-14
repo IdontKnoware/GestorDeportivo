@@ -4,10 +4,12 @@ INSERT INTO equipos VALUES (1,'F.C Barcelona','a.jpg'),
 						   (3,'A.C Milan','c.jsp'),
 						   (4,'RCD Espanyol','d.jsp');
 
+-- JORDI
 
 INSERT INTO estados VALUES ('ABIERTO'),
 						   ('CERRADO'),
 					 	   ('PENDIENTE');
+
 
 
 INSERT INTO partidos VALUES (1,1,1,2,0,0,'PENDIENTE'),
