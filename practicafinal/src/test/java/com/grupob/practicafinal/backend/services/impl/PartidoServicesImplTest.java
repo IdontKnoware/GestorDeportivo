@@ -13,14 +13,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.grupob.practicafinal.backend.models.Estado;
 import com.grupob.practicafinal.backend.models.Partido;
 import com.grupob.practicafinal.backend.repositories.PartidoRepository;
-import com.grupob.practicafinal.backend.services.PartidoServices;
+//import com.grupob.practicafinal.backend.services.PartidoServices;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PartidoServicesImplTest {
 
-	@Autowired
-	private PartidoServices partidoServices;
+//	@Autowired
+//	private PartidoServices partidoServices;
 	
 	@Autowired
 	private PartidoRepository partidoRepository;
