@@ -26,11 +26,13 @@
 					<tr>
 						<td>${partido.getId()}</td>
 						<td>${partido.getJornada()}</td>
-						<td>${partido.getLocal()}</td>
-						<td>${partido.getVisitante()}</td>
+						<td>${partido.getLocal().nombre}</td>
+						<td>${partido.getVisitante().nombre}</td>
 						<td>${partido.getEstado()}</td>
-						<td><a href="/abrirpartido/{partido.getId()}">change</a></td>
-						<td><a href="">Detalle</a></td>
+						<td>
+							<a href="./finalizar/${partido.getId()}">change</a>
+						</td>
+						<td><a href="./detalle/${partido.getId()}">Ver</a></td>
 					</tr>
 				</c:forEach>
 				
