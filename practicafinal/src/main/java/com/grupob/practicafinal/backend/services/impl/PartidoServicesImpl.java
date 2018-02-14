@@ -48,6 +48,18 @@ public class PartidoServicesImpl implements PartidoServices {
 			throw new IllegalStateException("Partido no abierto. No se puede cerrar");
 		}
 	}
+		
+	@Override
+	public void cambiarEstado(int codigoPartido) throws Exception{
+		Partido partido = partidoRepository.findOne(codigoPartido);
+		if (partido.getEstado().equals(Estado.PENDIENTE)) {
+			partido.setEstado(Estado.ABIERTO);
+		}else if (partido.getEstado().equals(Estado.ABIERTO)) {
+			partido.setEstado(Estado.CERRADO);
+		}else{
+			throw new IllegalStateException("No puedo cambiar estado del partido...WTF?!?!?!");
+		}
+	}
 
 	@Override
 	public void anadirLance(int codigoPartido, int codigoEquipo, TipoLance tipoLance, int minuto, String comentario)
