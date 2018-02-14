@@ -10,20 +10,51 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.grupob.practicafinal.backend.models.Clasificado;
+import com.grupob.practicafinal.backend.models.ClasificadoDTO;
 import com.grupob.practicafinal.backend.models.Partido;
-import com.grupob.practicafinal.backend.repositories.EquipoRepository;
 import com.grupob.practicafinal.backend.repositories.PartidoRepository;
+import com.grupob.practicafinal.backend.services.ClasificacionServices;
 
 @Controller
 @RequestMapping(value = "grupob/api/")
 public class PartidoControllerAPI {
 
 	@Autowired
-	PartidoRepository partidoRepository;
-	
-	@Autowired
-	EquipoRepository equipoRepository;
+	private PartidoRepository partidoRepository;
 
+	@Autowired
+	private ClasificacionServices clasificacionServices;
+	
+	
+	// GetClasificacionGlobal
+	@RequestMapping(value = "/clasificacion", 
+					method = RequestMethod.GET, 
+					produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<Clasificado> getClasificacion() {
+		
+		List<Clasificado> lista = this.clasificacionServices.getClasificacion();
+		
+		for(Clasificado clasificado: lista) {
+			System.out.println(clasificado);
+		}
+		return lista;
+	}
+	
+	//GetClasificacionCondicionada
+	@RequestMapping(value = "/clasificacion/{condicion}", 
+			method = RequestMethod.GET, 
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<ClasificadoDTO> getClasificacionEquipo(@PathVariable("condicion") String condicion){
+		
+		List<ClasificadoDTO> lista = this.clasificacionServices.getClasificacionEquipo(condicion);
+		
+		for (ClasificadoDTO clasificadoDTO : lista) {			
+			System.out.println(clasificadoDTO);
+		}
+		return lista;
+	}
+	
 	// GetAllPartidos
 	@RequestMapping(value = "/partidos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Partido> getAllEquipos() {
