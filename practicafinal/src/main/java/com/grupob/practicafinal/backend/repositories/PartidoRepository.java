@@ -22,8 +22,8 @@ public interface PartidoRepository extends JpaRepository<Partido, Integer> {
 	@Query("Select p from Partido p where jornada = ?1")
 	List<Partido> getByJornada(String jornada);
 	
-	@Query("Select p from Partido p where id_estado != ?1")
-	List<Partido> getByEstado(String estado);
+	@Query("Select p from Partido p where id_estado != 'PENDIENTES'")
+	List<Partido> getPartidosPuntuables();
 
 	
 	@Query("select p from Partido p where p.local = ?1 or p.visitante = ?1")
