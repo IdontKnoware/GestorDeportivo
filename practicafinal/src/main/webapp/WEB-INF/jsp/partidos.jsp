@@ -26,15 +26,15 @@
 				
 				<c:forEach var="partido" items="${partidos}">
 					<tr>
-						<td>${partido.getId()}</td>
-						<td>${partido.getJornada()}</td>
-						<td>${partido.getLocal().nombre}</td>
-						<td>${partido.getVisitante().nombre}</td>
-						<td>${partido.getEstado()}</td>
+						<td>${partido.id}</td>
+						<td>${partido.jornada}</td>
+						<td>${partido.local.nombre}</td>
+						<td>${partido.visitante.nombre}</td>
+						<td>${partido.estado}</td>
 						<td>
-							<a href="<c:url value='./${partido.getId()}'/>">change</a>
+							<a href="<c:url value='./${partido.id}'/>">change</a>
 						</td>
-						<td><a href="./detalle/${partido.getId()}">Ver</a></td>
+						<td><a href="./fichapartido/${partido.id}">Ver</a></td>
 					</tr>
 				</c:forEach>
 				

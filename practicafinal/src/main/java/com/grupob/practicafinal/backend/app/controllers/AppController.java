@@ -1,5 +1,6 @@
 package com.grupob.practicafinal.backend.app.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.grupob.practicafinal.backend.models.Lance;
 import com.grupob.practicafinal.backend.models.Partido;
+import com.grupob.practicafinal.backend.models.TipoLance;
 import com.grupob.practicafinal.backend.repositories.LanceRepository;
 import com.grupob.practicafinal.backend.repositories.PartidoRepository;
 import com.grupob.practicafinal.backend.services.ClasificacionServices;
@@ -82,18 +84,42 @@ public class AppController {
 	
 	// nuevo lance
 	
-		@RequestMapping(value="/nuevolance",
-						method=RequestMethod.GET)	
-		public String lances(ModelMap modelMap) {
+	@RequestMapping(value="/fichapartido/{id}",
+					method=RequestMethod.GET)	
+	public String lances(@PathVariable("id") Integer id, ModelMap modelMap) {
+		
+		
+		Partido partido = partidoRepository.findOne(id);
+		
+		modelMap.put("partido", partido);	
+		
+		List<Lance> lances = lanceRepository.getByPartido(id);
+		
+		modelMap.put("lances", lances);
+		
+		TipoLance[] tipolance = TipoLance.values();
+		
+		List<String> tiposString = new ArrayList<>();
+		
+		for (int i=0; i<tipolance.length; i++) {
 			
-			List<Partido> partidos = partidoRepository.findAll();
-			List<Lance> lances = lanceRepository.findAll();
-			
-			// Hemos de colocar la lista de partidos en el ModelMap para que llegue al JSP
-			
-			modelMap.put("nuevolance", partidos);
-			modelMap.put("nuevolance", lances);
-			
-			return "nuevolance";
+			tiposString.add(tipolance[i].toString());
+			System.out.println("\n ** TIPO DE LANCE: " + tipolance[i]);
 		}
+		
+		System.out.println("\n *** LISTA DE LANCES: " + tiposString);
+		
+		modelMap.put("fichapartido", tiposString);
+		modelMap.put("lances", tiposString);
+		
+		
+		
+		
+		
+		
+		
+		//lanceRepository.save(lances);
+		
+		return "fichapartido";
+	}
 }

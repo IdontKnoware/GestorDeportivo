@@ -24,15 +24,19 @@ INSERT INTO partidos VALUES (1,1,1,2,0,0,'PENDIENTE'),
 							(12,6,2,4,0,0,'PENDIENTE');
 
 
-INSERT INTO tipos_lance VALUES ('AGRESIÓN'),
+INSERT INTO tipos_lance VALUES ('AGRESION'),
 							   ('CORNER'),
 							   ('FALTA'),
-							   ('FALTA PELIGROSA'),
+							   ('FALTA_PELIGROSA'),
 							   ('GOL'),
 							   ('INCIDENCIA'),
 							   ('JUGADA'),
-							   ('LESIÓN'),
-							   ('OCASIÓN'),
+							   ('LESION'),
+							   ('OCASION'),
 							   ('PENALTY'),
-							   ('TARJETA ROJA'),
-							   ('TARJETA AMARILLA');
+							   ('TARJETA_ROJA'),
+							   ('TARJETA_AMARILLA');
+
+INSERT INTO lances VALUES (1, 1, 1, 10, 'GOL', 'Golaso');
+INSERT INTO lances VALUES (2, 1, 2, 11, 'LESION', 'LESIÓN DE PROSINESKY');
+INSERT INTO lances VALUES (3, 1, 2, 90, 'TARJETA_AMARILLA', 'AMARILLA A HIERRO');
