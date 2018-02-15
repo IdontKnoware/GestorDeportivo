@@ -17,7 +17,7 @@
 		<h4>Jornada: ${partido.jornada}</h4>
 		<h4>ID Partido: ${partido.id}</h4>
 		
-		<table var="partido" items="${partido}">
+		<table>
 			<tr>
 				<td>Local: ${partido.local.nombre}</td>
 				<td>Goles: ${partido.golesLocal}</td>
@@ -25,7 +25,7 @@
 			<tr>
 				<td>Visitante: ${partido.visitante.nombre}</td>
 				<td>Goles: ${partido.golesVisitante}</td>
-			</tr>			
+			</tr>	
 		</table>
 		<p>Estado: ${partido.estado}</p><button value="cerrar">CERRAR</button>
 		
@@ -46,12 +46,13 @@
 				</tr>
 			</c:forEach>
 		</table>
+		
 		<form method="GET">
 			<input type="number"/>
+			
 			<select>
-				<c:forEach var="tipo" items="${TipoLance.values()}">
-					
-					<option value="tipo">${tipo}</option>
+				<c:forEach var="tipoLance" items="${tiposLance}">
+					<option value="${tipoLance}">${tipoLance}</option>
 				</c:forEach>
 			</select>
 			
