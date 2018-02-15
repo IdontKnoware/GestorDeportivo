@@ -49,6 +49,8 @@ public class Lance implements Serializable {
 		this.tipos = tipos;
 		this.comentario = comentario;
 	}
+	
+	
 
 	public Integer getId() {
 		return id;
