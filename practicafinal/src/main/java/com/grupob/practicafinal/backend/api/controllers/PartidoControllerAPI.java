@@ -28,45 +28,36 @@ public class PartidoControllerAPI {
 	private ClasificacionServices clasificacionServices;
 
 	// GetClasificacionGlobal
-	@RequestMapping(value = "/clasificacion", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<?> getClasificacion(
-			@RequestParam(name = "condicion", required = false, defaultValue = "todos") String condicion) {
-
+	@RequestMapping(value = "/clasificacion",
+					method = RequestMethod.GET,
+					produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<?> getClasificacion(@RequestParam(name = "condicion",
+																required = false,
+																defaultValue = "todos") String condicion) {
 		if (condicion == "todos") {
 			List<Clasificado> lista = this.clasificacionServices.getClasificacion();
-
-			return lista;
+				return lista;
 		} else {
 			List<ClasificadoDTO> lista = this.clasificacionServices.getClasificacionEquipo(condicion);
-
-			return lista;
+				return lista;
 		}
 	}
 
 	// GetAllPartidos
-	@RequestMapping(value = "/partidos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/partidos",
+					method = RequestMethod.GET,
+					produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Partido> getAllEquipos() {
-
 		List<Partido> partido = partidoRepository.findAll();
-
-		return partido;
+			return partido;
 	}
 
 	// GetPartido
-	@RequestMapping(value = "/partidos/{ID}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/partidos/{ID}",
+					method = RequestMethod.GET,
+					produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Partido getPartido(@PathVariable("ID") int ID) {
 		Partido partido = partidoRepository.findOne(ID);
-
-		return partido;
-	}
-
-	// GetByJornada
-
-	@RequestMapping(value = "/partidos/jornada/{jornada}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<Partido> getPartidosByJornada(@PathVariable("jornada") String jornada) {
-
-		List<Partido> partidos = partidoRepository.getByJornada(jornada);
-
-		return partidos;
+			return partido;
 	}
 }
