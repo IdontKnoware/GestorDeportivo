@@ -77,6 +77,7 @@ public class PartidoServicesImpl implements PartidoServices {
 			} else {
 				partido.setGolesVisitante(partido.getGolesVisitante()+1);
 			}
+			partidoRepository.save(partido);
 		}
 		
 		

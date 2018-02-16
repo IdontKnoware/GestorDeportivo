@@ -4,10 +4,9 @@
 <nav>
 	<h4>Menú</h4>
 	<ul>
-		<li><a href="index.jsp">Index</a></li>
-		<li><a href="./partidos">Listado de partidos</a></li>
-		<li><a href="./nuevolance">Añadir un lance</a></li>
-		<li><a href="./clasificacion">Clasificación LIVE</a></li>
+		<li><a href="http://localhost:8080/practicafinal/app/">Index</a></li>
+		<li><a href="http://localhost:8080/practicafinal/app/partidos">Listado de partidos</a></li>
+		<li><a href="http://localhost:8080/grupob/api/clasificacion">Clasificación LIVE</a></li>
 	</ul>
 	<hr>
 </nav>
