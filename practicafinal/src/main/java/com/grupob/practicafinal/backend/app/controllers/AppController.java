@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.grupob.practicafinal.backend.models.Clasificado;
 import com.grupob.practicafinal.backend.models.Lance;
 import com.grupob.practicafinal.backend.models.Partido;
 import com.grupob.practicafinal.backend.models.TipoLance;
@@ -26,7 +27,6 @@ public class AppController {
 	@Autowired
 	private PartidoServices partidoServices;
 	
-	@SuppressWarnings("unused")
 	@Autowired
 	private ClasificacionServices clasificacionServices;
 	
@@ -97,4 +97,13 @@ public class AppController {
 		
 		return "redirect:fichapartido/"+partido;
 	}
+	
+	@RequestMapping(value="/clasificacion", method=RequestMethod.GET)
+	public String Clasificacion(ModelMap modelMap) {
+		
+		List<Clasificado> clasificacion = clasificacionServices.getClasificacion();
+		modelMap.put("clasificacion", clasificacion);
+		return "clasificacion";
+	}
+	
 }

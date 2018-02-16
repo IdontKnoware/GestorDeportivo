@@ -27,7 +27,7 @@
 	<nav
 		class="mt-5 nav nav-pills nav-fill justify-content-center btn-group">
 		<a class="nav-link btn btn-primary" href="./partidos">Listado de
-			Partidos</a> <a class="nav-link btn btn-primary" href="./clasificacion">Clasificacíon</a>
+			Partidos</a> <a class="nav-link btn btn-primary" href="./clasificacion">Clasificación</a>
 		<a class="nav-link btn btn-primary" href="/swagger-ui.html">Swagger</a>
 	</nav>
 </body>
