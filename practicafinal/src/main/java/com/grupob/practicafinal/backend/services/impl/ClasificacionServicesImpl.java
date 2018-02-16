@@ -104,7 +104,7 @@ public class ClasificacionServicesImpl implements ClasificacionServices {
 	}
 
 	public List<ClasificadoDTO> getClasificacionEquipo(String condicion){
-		
+						
 		List<Clasificado> clasificacionGeneral = getClasificacion();
 		List<ClasificadoDTO> clasificados = new ArrayList<ClasificadoDTO>();
 		
@@ -114,22 +114,22 @@ public class ClasificacionServicesImpl implements ClasificacionServices {
 				
 				ClasificadoDTO comodin = new ClasificadoDTO();
 				comodin.setEquipo(clasificado.getEquipo());
-				comodin.setGolesContra(clasificado.getGCL());
-				comodin.setGolesFavor(clasificado.getGFL());
-				comodin.setPartidosPerdidos(clasificado.getPPL());
-				comodin.setPartidosGanados(clasificado.getPGL());
-				comodin.setPartidosEmpatados(clasificado.getPEL());
+				comodin.setGolesContra(clasificado.getGCL() + clasificado.getGCV());
+				comodin.setGolesFavor(clasificado.getGFL() + clasificado.getGFV());
+				comodin.setPartidosPerdidos(clasificado.getPPL() + clasificado.getPPV());
+				comodin.setPartidosGanados(clasificado.getPGL() + clasificado.getPGV());
+				comodin.setPartidosEmpatados(clasificado.getPEL()+ clasificado.getPEV());
 				
 				clasificados.add(comodin);
 			}else {//Si es visitante
 				
 				ClasificadoDTO comodin = new ClasificadoDTO();
 				comodin.setEquipo(clasificado.getEquipo());
-				comodin.setGolesContra(clasificado.getGCV());
-				comodin.setGolesFavor(clasificado.getGFV());
-				comodin.setPartidosPerdidos(clasificado.getPPV());
-				comodin.setPartidosGanados(clasificado.getPGV());
-				comodin.setPartidosEmpatados(clasificado.getPEV());
+				comodin.setGolesContra(clasificado.getGCV() + clasificado.getGCL());
+				comodin.setGolesFavor(clasificado.getGFV() + clasificado.getGFL());
+				comodin.setPartidosPerdidos(clasificado.getPPV()+ clasificado.getPPL());
+				comodin.setPartidosGanados(clasificado.getPGV() + clasificado.getPGL());
+				comodin.setPartidosEmpatados(clasificado.getPEV() + clasificado.getPEL());
 				
 				clasificados.add(comodin);
 			}
