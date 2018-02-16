@@ -6,24 +6,21 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.grupob.practicafinal.backend.models.Equipo;
 import com.grupob.practicafinal.backend.models.Lance;
 import com.grupob.practicafinal.backend.models.Partido;
 import com.grupob.practicafinal.backend.models.TipoLance;
-import com.grupob.practicafinal.backend.repositories.EquipoRepository;
 import com.grupob.practicafinal.backend.repositories.LanceRepository;
 import com.grupob.practicafinal.backend.repositories.PartidoRepository;
 import com.grupob.practicafinal.backend.services.ClasificacionServices;
 import com.grupob.practicafinal.backend.services.PartidoServices;
 
 @Controller
-@RequestMapping(value="practicafinal/app")
+@RequestMapping(value="/")
 public class AppController {
 	
 	@Autowired
@@ -38,18 +35,6 @@ public class AppController {
 	
 	@Autowired
 	private LanceRepository lanceRepository;
-	
-	@Autowired
-	private EquipoRepository equipoRepository;
-	
-	// Welcome page
-	
-	@RequestMapping(value="/",
-					method=RequestMethod.GET)	
-	public String home() {
-		return "index";
-	}
-	
 	
 	// Listar todos los partidos
 	
