@@ -25,8 +25,17 @@
 			<td>Goles: ${partido.golesVisitante}</td>
 		</tr>	
 	</table>
-	<p>Estado: ${partido.estado}</p><button value="cerrar">CERRAR</button>
+	<p>Estado: ${partido.estado}</p>
+	<form action="./../partidos/${partido.id}">
 		
+		<button type="submit"
+				<c:if test="${partido.estado eq 'CERRADO'}">${disabled="disabled"}</c:if>
+		>
+			${partido.estado}
+		</button>
+		
+	</form>
+	
 	<h4>LANCES</h4>
 	<table>
 		<tr>
@@ -45,25 +54,26 @@
 		</c:forEach>
 	</table>
 		
-	<form action="./../guardarlance" method="POST">
-		<input type="number" name="minuto"/>
-		
-		<select name="tipolance">
-			<c:forEach var="tipoLance" items="${tiposLance}">
-				<option value="${tipoLance}">${tipoLance}</option>
-			</c:forEach>
-		</select>
-		
-		<select name="equipo">
-			<option value="${partido.local.id}">${partido.local.nombre}</option>
-			<option value="${partido.visitante.id}">${partido.visitante.nombre}</option>
-		</select>
-		
-		<input type="text" name="comentario">
-		
-		<input type="hidden" name="partido" value="${partido.id}" />
-		<input type="submit" value="AÑADIR" />
-	</form>
-	
+	<c:if test="${partido.estado eq 'ABIERTO'}">
+		<form action="./../guardarlance" method="POST">
+			<input type="number" name="minuto"/>
+			
+			<select name="tipolance">
+				<c:forEach var="tipoLance" items="${tiposLance}">
+					<option value="${tipoLance}">${tipoLance}</option>
+				</c:forEach>
+			</select>
+			
+			<select name="equipo">
+				<option value="${partido.local.id}">${partido.local.nombre}</option>
+				<option value="${partido.visitante.id}">${partido.visitante.nombre}</option>
+			</select>
+			
+			<input type="text" name="comentario">
+			
+			<input type="hidden" name="partido" value="${partido.id}" />
+			<input type="submit" value="AÑADIR" />
+		</form>
+	</c:if>
 </body>
 </html>

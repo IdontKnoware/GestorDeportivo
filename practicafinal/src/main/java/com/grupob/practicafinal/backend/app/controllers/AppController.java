@@ -65,26 +65,25 @@ public class AppController {
 	// Abrir/Cerrar partido
 	@RequestMapping(value="/partidos/{id}",
 					method=RequestMethod.GET)	
-	public String cambiar(@PathVariable("id") Integer id, ModelMap modelMap) {
-		
+	public String cambiar(@PathVariable("id") Integer id, ModelMap modelMap) {;
 		try {
 			partidoServices.cambiarEstado(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		List<Partido> partidos = partidoRepository.findAll();
+		Partido partido = partidoRepository.findOne(id);
 		
-		modelMap.put("partidos", partidos);
+		modelMap.put("partido", partido);
 		
-		return "partidos";
+		return "redirect:./../fichapartido/"+partido.getId();
 	}
 	
-	// nuevo lance
-	
+//	// nuevo lance
+//	
 	@RequestMapping(value="/fichapartido/{id}",
 					method=RequestMethod.GET)	
-	public String xsxsxsxsx(@PathVariable("id") Integer id, ModelMap modelMap) {
+	public String anadirLance(@PathVariable("id") Integer id, ModelMap modelMap) {
 		
 		Partido partido = partidoRepository.findOne(id);
 		List<Lance> lances = lanceRepository.getByPartido(id);
@@ -98,7 +97,7 @@ public class AppController {
 	}
 	
 	@RequestMapping(value="/guardarlance", method=RequestMethod.POST)
-	public String borrame(@RequestParam("partido") int partido,
+	public String anadirLance(@RequestParam("partido") int partido,
 						  @RequestParam("equipo") int equipo,
 						  @RequestParam("minuto") int minuto,
 						  @RequestParam("tipolance") String tipoLance,
@@ -111,30 +110,6 @@ public class AppController {
 			e.printStackTrace();
 		}
 		
-		return "index";
+		return "redirect:fichapartido/"+partido;
 	}
-	
-	/*
-	
-	@RequestMapping(value="/guardarlance", method=RequestMethod.GET)
-	public String guardarLance(	@RequestParam("partido") Integer partido,
-								@RequestParam("equipo") Integer equipo,
-								@RequestParam("minuto") int minuto,
-								@RequestParam("tipolance") String tipolance,
-								@RequestParam("comentario") String comentario) {
-	
-		System.out.println("\n********* DENTRO! *************");
-		System.out.println("\nCHURRO: " + partido + equipo + tipolance + comentario);
-		
-		Partido p = partidoRepository.findOne(partido);
-		Equipo e  = equipoRepository.findOne(equipo);
-		 
-		Lance lance = new Lance(p, e, minuto, TipoLance.valueOf(tipolance), comentario);
-		
-		lanceRepository.save(lance);
-	
-		return "fichapartido";
-	}
-	
-	*/
 }

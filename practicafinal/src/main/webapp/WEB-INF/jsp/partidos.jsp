@@ -19,7 +19,6 @@
 					<th>L</th>
 					<th>V</th>
 					<th>ESTADO</th>
-					<th>ABRIR/CERRAR</th>
 					<th>VER</th>
 				</tr>
 				
@@ -30,9 +29,7 @@
 						<td>${partido.local.nombre}</td>
 						<td>${partido.visitante.nombre}</td>
 						<td>${partido.estado}</td>
-						<td>
-							<a href="<c:url value='./${partido.id}'/>">change</a>
-						</td>
+						
 						<td><a href="./fichapartido/${partido.id}">Ver</a></td>
 					</tr>
 				</c:forEach>
